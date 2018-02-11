@@ -10,7 +10,7 @@ const routes = require('./routes/index');
 var app = express();
 
 // set our application port
-app.set('port', 3000);
+//app.set('port', 3000);
 
 //allow cross domain
 var allowCrossDomain = function(req, res, next) {
@@ -99,4 +99,5 @@ app.use(function (req, res, next) {
 
 
 // start the express server
+app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
