@@ -6,8 +6,9 @@ var morgan = require('morgan');
 var User = require('./models/user');
 const routes = require('./routes/index');
 
+
 // invoke an instance of express application.
-var app = express();
+const app = express();
 
 // set our application port
 //app.set('port', 3000);
@@ -97,7 +98,10 @@ app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
 
-
+module.exports = app;
+//var options;
+//http.createServer(app).listen(80);
+//https.createServer(options, app).listen(443);
 // start the express server
-app.set('port', process.env.PORT || 3000);
-app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
+//app.set('port', process.env.PORT || 3000);
+//app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
