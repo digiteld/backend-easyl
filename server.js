@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
+var cors = require('cors');
 var User = require('./models/user');
 const routes = require('./routes/index');
 
@@ -28,13 +29,18 @@ var allowCrossDomain = function(req, res, next) {
     }
 };
 
-app.use(allowCrossDomain);
+var cors=require('cors');
+
+app.use(cors({origin:true,credentials: true}));
+
+//app.use(allowCrossDomain);
 
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
 
 // initialize body-parser to parse incoming parameters requests to req.body
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // initialize cookie-parser to allow us access the cookies stored in the browser. 
 app.use(cookieParser());
@@ -46,7 +52,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 600000
+        expires: 6000000
     }
 }));
 
