@@ -31,7 +31,7 @@ var allowCrossDomain = function(req, res, next) {
 
 var cors=require('cors');
 
-app.use(cors({origin:true,credentials: true}));
+app.use(cors({origin:false,credentials: true}));
 
 //app.use(allowCrossDomain);
 
