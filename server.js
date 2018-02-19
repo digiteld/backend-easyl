@@ -32,7 +32,7 @@ var allowCrossDomain = function(req, res, next) {
 var cors=require('cors');
 
 //app.use(cors({origin:["http://localhost:8100"],credentials: true}));
-app.use(cors({origin:"*",credentials: true,allowedHeaders:['Content-Type', 'Authorization','Content-Length', 'X-Requested-With']}));
+app.use(cors({origin:["http://localhost:8100"],credentials: true,allowedHeaders:['Content-Type', 'Authorization','Content-Length', 'X-Requested-With']}));
 
 //app.use(allowCrossDomain);
 
